@@ -21,8 +21,8 @@ spec:
     spec:
       containers:
         - name: {{ .Chart.Name }}Canary
-          image: "{{ .Values.image-canary.repository }}:{{ .Values.image-canary.tag }}"
-          imagePullPolicy: {{ .Values.image-canary.pullPolicy }}
+          image: "{{ .Values.imagecanary.repository }}:{{ .Values.imagecanary.tag }}"
+          imagePullPolicy: {{ .Values.imagecanary.pullPolicy }}
           ports:
             - name: http
               containerPort: 9080
