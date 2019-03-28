@@ -9,6 +9,11 @@ image:
   tag: 0.1
   pullPolicy: IfNotPresent
 
+image-canary:
+  repository: istio/examples-bookinfo-productpage-v2
+  tag: 0.1
+  pullPolicy: IfNotPresent
+
 service:
   type: LoadBalancer
   port: 9080
