@@ -1,9 +1,9 @@
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: {{ template "productpage.fullname" . }}-canary
+  name: {{ template "productpage.fullname" . }}Canary
   labels:
-    app: {{ template "productpage.name" . }}-canary
+    app: {{ template "productpage.name" . }}Canary
     chart: {{ template "productpage.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
@@ -11,16 +11,16 @@ spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ template "productpage.name" . }}-canary
+      app: {{ template "productpage.name" . }}Canary
       release: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: {{ template "productpage.name" . }}-canary
+        app: {{ template "productpage.name" . }}Canary
         release: {{ .Release.Name }}
     spec:
       containers:
-        - name: {{ .Chart.Name }}-canary
+        - name: {{ .Chart.Name }}Canary
           image: "{{ .Values.image-canary.repository }}:{{ .Values.image-canary.tag }}"
           imagePullPolicy: {{ .Values.image-canary.pullPolicy }}
           ports:
