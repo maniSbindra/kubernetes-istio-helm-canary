@@ -9,7 +9,7 @@ metadata:
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: {{ .Values.canaryReplicaCount }}
   selector:
     matchLabels:
       app: {{ template "productpage.name" . }}
@@ -28,7 +28,7 @@ spec:
           imagePullPolicy: {{ .Values.imagecanary.pullPolicy }}
           ports:
             - name: http
-              containerPort: 9080
+              containerPort: {{ .Values.service.port }}
               protocol: TCP
           livenessProbe:
             httpGet:

@@ -2,8 +2,11 @@ apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
   name: product-page-destination-rule
+  labels:
+    chart: {{ template "productpage.chart" . }}
+    release: {{ .Release.Name }}
 spec:
-  host: product-page-canary-productpage.bookinfo-k8s-helm-istio-canary.svc.cluster.local
+  host: {{ .Values.service.name }}.{{.Release.Namespace}}.svc.cluster.local
   trafficPolicy:
     tls:
       mode: ISTIO_MUTUAL

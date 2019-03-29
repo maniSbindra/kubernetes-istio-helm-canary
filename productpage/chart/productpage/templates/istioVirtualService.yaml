@@ -2,22 +2,25 @@ apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
   name: product-page-virtual-service
+  labels:
+    chart: {{ template "productpage.chart" . }}
+    release: {{ .Release.Name }}
 spec:
   hosts:
-  - product-page-canary-productpage.bookinfo-k8s-helm-istio-canary.svc.cluster.local
+  - {{ .Values.service.name }}.{{ .Release.Namespace }}.svc.cluster.local
   gateways:
   - product-page
   http:
   - route:
     - destination:
-        host: product-page-canary-productpage.bookinfo-k8s-helm-istio-canary.svc.cluster.local
+        host: {{ .Values.service.name }}.{{ .Release.Namespace }}.svc.cluster.local
         subset: v1
         port:
-          number: 9080
-      weight: 75
+          number: {{ .Values.service.port }}
+      weight: {{ .Values.prodDeploymentWeightage }}
     - destination:
-        host: product-page-canary-productpage.bookinfo-k8s-helm-istio-canary.svc.cluster.local
+        host: {{ .Values.service.name }}.{{ .Release.Namespace }}.svc.cluster.local
         subset: v2
         port:
-          number: 9080
-      weight: 25
+          number: {{ .Values.service.port }}
+      weight: {{ .Values.canaryWeightage }}
