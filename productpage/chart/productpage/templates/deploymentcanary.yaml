@@ -3,7 +3,8 @@ kind: Deployment
 metadata:
   name: {{ template "productpage.fullname" . }}canary
   labels:
-    app: {{ template "productpage.name" . }}canary
+    app: {{ template "productpage.name" . }}
+    canary: true
     chart: {{ template "productpage.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
@@ -11,12 +12,14 @@ spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ template "productpage.name" . }}canary
+      app: {{ template "productpage.name" . }}
+      canary: true
       release: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: {{ template "productpage.name" . }}canary
+        app: {{ template "productpage.name" . }}
+        canary: true
         release: {{ .Release.Name }}
     spec:
       containers:
