@@ -4,7 +4,7 @@ metadata:
   name: {{ template "productpage.fullname" . }}
   labels:
     app: {{ template "productpage.name" . }}
-    canary: false
+    canary: "false"
     chart: {{ template "productpage.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
@@ -13,13 +13,13 @@ spec:
   selector:
     matchLabels:
       app: {{ template "productpage.name" . }}
-      canary: false
+      canary: "false"
       release: {{ .Release.Name }}
   template:
     metadata:
       labels:
         app: {{ template "productpage.name" . }}
-        canary: false
+        canary: "false"
         release: {{ .Release.Name }}
     spec:
       containers:
