@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: product-page-destination-rule
+spec:
+  host: product-page-canary-productpage.bookinfo-k8s-helm-istio-canary.svc.cluster.local
+  trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL
+  subsets:
+  - name: v1
+    labels:
+      canary: "false"
+  - name: v2
+    labels:
+      canary: "true"
