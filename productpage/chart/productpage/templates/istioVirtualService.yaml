@@ -4,24 +4,17 @@ metadata:
   name: product-page-virtual-service
 spec:
   hosts:
-  - "*"
+  - product-page-canary-productpage.bookinfo-k8s-helm-istio-canary.svc.cluster.local
   gateways:
   - product-page
   http:
-  - match:
-    - uri:
-        prefix: /
-    route:
+  - route:
     - destination:
         host: product-page-canary-productpage.bookinfo-k8s-helm-istio-canary.svc.cluster.local
         subset: v1
         port:
           number: 9080
       weight: 75
-  - match:
-    - uri:
-        prefix: /
-    route:
     - destination:
         host: product-page-canary-productpage.bookinfo-k8s-helm-istio-canary.svc.cluster.local
         subset: v2
