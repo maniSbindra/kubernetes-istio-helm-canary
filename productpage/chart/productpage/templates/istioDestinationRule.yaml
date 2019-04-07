@@ -11,9 +11,9 @@ spec:
     tls:
       mode: ISTIO_MUTUAL
   subsets:
-  - name: v1
+  - name: production
     labels:
       canary: "false"
-  - name: v2
+  - name: canary
     labels:
       canary: "true"

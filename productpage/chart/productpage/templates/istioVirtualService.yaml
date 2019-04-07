@@ -14,13 +14,13 @@ spec:
   - route:
     - destination:
         host: {{ .Values.service.name }}.{{ .Release.Namespace }}.svc.cluster.local
-        subset: v1
+        subset: production
         port:
           number: {{ .Values.service.port }}
-      weight: {{ .Values.prodDeploymentWeightage }}
+      weight: {{ .Values.productionDeployment.weight }}
     - destination:
         host: {{ .Values.service.name }}.{{ .Release.Namespace }}.svc.cluster.local
-        subset: v2
+        subset: canary
         port:
           number: {{ .Values.service.port }}
-      weight: {{ .Values.canaryWeightage }}
+      weight: {{ .Values.canaryDeployment.weight }}
