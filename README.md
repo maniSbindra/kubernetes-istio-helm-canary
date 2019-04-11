@@ -2,7 +2,7 @@
 
 ## The productpage app from istio docs is being used as the sample application to demonstrate this strategy
 
-## Medium Post (TO ADD Link demonstrates this strategy in more detail)
+## The [post](https://medium.com/microsoftazure/canary-release-strategy-using-kubernetes-istio-helm-fb49c0406f07) explains the strategy in more detail
 
 ## Strategy Stages
 
