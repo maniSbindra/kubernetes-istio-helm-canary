@@ -4,7 +4,7 @@ service:
 
 productionDeployment:
   replicaCount: 2
-  weight: 100
+  weight: 50
   image:
     repository: diquzart/php-webapp
     tag: latest
@@ -13,7 +13,7 @@ productionDeployment:
 
 canaryDeployment:
   replicaCount: 0
-  weight: 0
+  weight: 50
   image:
     repository: diquzart/php-webapp
     tag: 29
