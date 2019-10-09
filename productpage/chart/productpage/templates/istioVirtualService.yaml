@@ -7,7 +7,7 @@ metadata:
     release: {{ .Release.Name }}
 spec:
   hosts:
-  - {{ .Values.service.name }}.{{ .Release.Namespace }}.svc.cluster.local
+  - "*"
   gateways:
   - product-page
   http:
