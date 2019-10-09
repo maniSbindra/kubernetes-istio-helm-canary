@@ -1,13 +1,13 @@
 service:
   name: product-page-svc
-  port: 9080
+  port: 80
 
 productionDeployment:
   replicaCount: 2
   weight: 100
   image:
-    repository: myacrepo.azurecr.io/bookinfo/productpage
-    tag: 83
+    repository: diquzart/php-webapp
+    tag: latest
     pullPolicy: IfNotPresent
 
 
@@ -15,8 +15,8 @@ canaryDeployment:
   replicaCount: 0
   weight: 0
   image:
-    repository: myacrepo.azurecr.io/bookinfo/productpage
-    tag: 83
+    repository: diquzart/php-webapp
+    tag: 29
     pullPolicy: IfNotPresent
 
 
