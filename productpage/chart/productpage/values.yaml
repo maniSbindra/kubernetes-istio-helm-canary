@@ -12,7 +12,7 @@ productionDeployment:
 
 
 canaryDeployment:
-  replicaCount: 0
+  replicaCount: 2
   weight: 50
   image:
     repository: diquzart/php-webapp
