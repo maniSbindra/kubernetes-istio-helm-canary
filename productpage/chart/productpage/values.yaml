@@ -18,3 +18,4 @@ canaryDeployment:
     repository: diquzart/php-webapp
     tag: 29
     pullPolicy: IfNotPresent
+
