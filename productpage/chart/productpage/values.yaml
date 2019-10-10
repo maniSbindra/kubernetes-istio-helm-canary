@@ -1,6 +1,6 @@
 service:
   name: product-page-svc
-  port: 80
+  port: 10
 
 productionDeployment:
   replicaCount: 2
