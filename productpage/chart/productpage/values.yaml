@@ -1,10 +1,10 @@
 service:
   name: product-page-svc
-  port: 10
+  port: 80
 
 productionDeployment:
   replicaCount: 2
-  weight: 50
+  weight: 10
   image:
     repository: diquzart/php-webapp
     tag: latest
